@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+
+const processDts = require('../lib/index').outputDtsFiles
+const program = require('commander')
+const version = require('../package.json').version
+
+const defaults = {
+  output: './@types',
+  base: './src/**',
+  pattern: '*.module.scss',
+}
+
+program
+  .version(version)
+  .usage('[options]')
+  .option('-o, --output <path>', `default path is ${ defaults.output }`)
+  .option('-b, --base <path>', `default base is ${ defaults.base }`)
+  .option('-p, --pattern [pattern]', `default base is ${ defaults.pattern  }`)
+  .parse(process.argv)
+
+
+if( program.args.length > 0 ) {
+  console.error('The following parameters not understood:\n', program.args.join(' '))
+  console.error('Please use only command options to configure behavior')
+  console.error('')
+  program.outputHelp();
+  process.exit()
+}
+
+// if (!process.argv.slice(2).length) {
+//   program.outputHelp();
+
+// }
+
+const output = ( program.output || defaults.output ).trim()
+const base = ( program.base || defaults.base ).trim()
+const pattern = ( program.pattern || defaults.pattern ).trim()
+
+const watchPattern = `${base}/${pattern}`.replace( /\/+/, '/' )
+console.log({watchPattern})
+processDts({output,watchPattern})

@@ -1,0 +1,36 @@
+{
+  "name": "@babakness/sass-module-types",
+  "version": "0.0.10",
+  "description": "Create TS definition files from sass modules",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/chokidar": "^1.7.5",
+    "@types/sass": "^1.16.0",
+    "chokidar": "^2.1.1",
+    "commander": "^2.19.0",
+    "jest": "^24.1.0",
+    "postcss": "^7.0.14",
+    "postcss-icss-selectors": "^2.0.3",
+    "postcss-nested": "^4.1.1",
+    "sass": "^1.17.0",
+    "soultrain": "^0.0.43",
+    "strip-css-singleline-comments": "^1.1.0",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.3.3"
+  },
+  "scripts": {
+    "start": "tsc -w",
+    "test": "jest",
+    "pub": "yarn publish --access=public"
+  },
+  "jest": {
+    "rootDir": "test"
+  },
+  "bin": {
+    "sass-module-types": "./bin/sass-module-types"
+  },
+  "devDependencies": {
+    "typed-css-modules": "^0.3.7"
+  }
+}

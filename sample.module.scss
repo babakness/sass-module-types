@@ -1,0 +1,10 @@
+.sectonContainer {
+  border: 1px solid red;
+}
+$sections: 10;
+@for $i from 1 to $sections {
+  .section-#{$i} {
+    transform: rotate(#{$i * 360 / $sections});
+  }
+}
+
