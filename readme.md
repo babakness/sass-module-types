@@ -18,7 +18,7 @@ $sections: 10;
 yields 10 different classes. All these classes should be extracted.
 
 
-<img src="https://raw.githubusercontent.com/babakness/sass-module-types/master/.github/images/example.gif" alt="sass-module-types animation" />
+<img src="https://raw.githubusercontent.com/babakness/sass-module-types/master/.github/images/animation.gif" alt="sass-module-types animation" />
 
 The benefit of this is that you get IntelliSense code-completion
 when you import a SCSS file.
