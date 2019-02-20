@@ -52,5 +52,5 @@ const base = ( program.base || defaults.base ).trim()
 const pattern = ( program.pattern || defaults.pattern ).trim()
 
 const watchPattern = `${base}/${pattern}`.replace( /\/+/, '/' )
-console.log({watchPattern, sassInclude})
+// console.log({watchPattern, sassInclude})
 processDts({watchPattern, sassInclude})

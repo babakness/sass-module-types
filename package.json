@@ -22,7 +22,8 @@
   "scripts": {
     "start": "tsc -w",
     "test": "jest",
-    "pub": "yarn publish --access=public"
+    "pub": "yarn publish --access=public",
+    "bump": "git add package.json; git push; git push origin --tags"
   },
   "jest": {
     "rootDir": "test"
