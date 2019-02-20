@@ -1,5 +1,5 @@
 $sections: 10;
-@each $i from 1 to $sections {
+@for $i from 1 to $sections {
   .section-#{$i} {
     transform: rotate(#{$i * 360 / $sections});
   }

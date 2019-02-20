@@ -11,8 +11,8 @@ import pipeline from 'soultrain/lib/function/pipeline'
 import { prop, keys } from 'soultrain/lib/object'
 import mapArray from 'soultrain/lib/array/mapArray'
 import bind from 'soultrain/lib/function/bindStrict'
-import { split } from 'soultrain/lib/string'
-import last from 'soultrain/lib/array/last'
+// import { split } from 'soultrain/lib/string'
+// import last from 'soultrain/lib/array/last'
 // import append from 'soultrain/lib/array/append'
 import { trace as log } from 'soultrain/lib/logging'
 
@@ -27,13 +27,13 @@ const processor = postcss(
 
 
 const toCamelCase = ( str: string ) => str.replace(/-+(\w)/, ( _match, firstLetter: string ) => firstLetter.toUpperCase() )
-const getPath = ( outputDir: string, file: string ) => `${outputDir}/${file}.d.ts`
+// const getPath = ( outputDir: string, file: string ) => `${outputDir}/${file}.d.ts`
 
-const getDtsContent = async ( path: string ) => {
+const getDtsContent = async ( sassInclude: string[], path: string ) => {
   try {
     const result = await renderPromise({
       file: path,
-      includePaths: ['src/']
+      includePaths: sassInclude 
     })
       // hmm... can't be piped...
     const lazyResult = processor.process(result.css.toString())
@@ -51,8 +51,9 @@ const getDtsContent = async ( path: string ) => {
       .map( cssClass => `export const ${cssClass}: string;` )
       .join('\n')
 
-    const defaultExport = 'export default {\n'
-      + classes.map( cssClass => `  ${cssClass}: string,`).join('\n') 
+    const defaultExport = 'export default {} as {\n'
+      + classes.map( cssClass => `  ${cssClass}: string,`).join('\n')
+      + '  [ key: string ]: string'
       + '\n}'
     
     return `${namedExports}\n${defaultExport}`
@@ -62,63 +63,62 @@ const getDtsContent = async ( path: string ) => {
   }
 }
 
-const shaveLeft = ( remove: string, source: string ) => {
-  return source[0] === remove 
-    ? source.slice(1)
-    : source
-}
+// const shaveLeft = ( remove: string, source: string ) => {
+//   return source[0] === remove 
+//     ? source.slice(1)
+//     : source
+// }
 
-const shaveRight = ( remove: string, source: string ) => {
-  return source[ source.length ] === remove 
-    ? source.slice(0,1)
-    : source
-}
+// const shaveRight = ( remove: string, source: string ) => {
+//   return source[ source.length ] === remove 
+//     ? source.slice(0,1)
+//     : source
+// }
 
-const shave = ( remove: string, source: string ) => pipeline(
-  source,
-  bind(shaveLeft, remove),
-  bind(shaveRight, remove)
-)
+// const shave = ( remove: string, source: string ) => pipeline(
+//   source,
+//   bind(shaveLeft, remove),
+//   bind(shaveRight, remove)
+// )
 
-const prependString = (a: string, b: string) => a.concat(b)
-const appendString = (a: string, b: string) => b.concat(a)
+// const prependString = (a: string, b: string) => a.concat(b)
+// const appendString = (a: string, b: string) => b.concat(a)
 
-const getWritePath = ( outputDir: string, file: string ) => {
-  return pipeline(
-    file,
-    bind(shaveRight, '/'),
-    split('/'),
-    last,
-    bind(prependString,`${outputDir}/`),
-    bind(appendString,`.d.ts`),
-  ).replace(/\+/,'/')
-}
+// const getWritePath = ( outputDir: string, file: string ) => {
+//   return pipeline(
+//     file,
+//     bind(shaveRight, '/'),
+//     split('/'),
+//     last,
+//     bind(prependString,`${outputDir}/`),
+//     bind(appendString,`.d.ts`),
+//   ).replace(/\+/,'/')
+// }
 
-const writeDtsContent = async (outputDir: string, file: string, content: string) => {
+const writeDtsContent = async (file: string, content: string) => {
   try {
-    log('gang',{outputDir,file})
+    // log('gang',{file})
     // const _ = await writePromise( getWritePath( outputDir, file ), content, 'utf8' )
     const _ = await writePromise( `${file}.d.ts`, content, 'utf8' )
-    log(`wrote ${file} to ${outputDir}`)
+    // log(`wrote ${file}`)
   } catch (e) {
     log(e)
     log(''
       + `Error writing file ${file}, are you sure the \n`
-      + `path ${outputDir} exists and has the correct \n`
-      + `permissions set?`
+      + `permissions set correctly?`
     )
   }
 }
 
-const addOrUpdateAction = async ( outputDir: string, file: string ) => pipeline(
-  await getDtsContent(file),
-  await bind(writeDtsContent, outputDir,file),
+const addOrUpdateAction = async ( sassInclude: string[], file: string ) => pipeline(
+  await getDtsContent( sassInclude, file ),
+  await bind(writeDtsContent, file),
 )
 
 
-const deleteAction = async ( outputDir: string, file: string ) => {
+const deleteAction = async ( file: string ) => {
   try {
-    const message = await unlinkPromise(getPath(outputDir, file ) )
+    const message = await unlinkPromise( `${file}.d.ts` )
     if( message !== null ) {
       log( message )
     }
@@ -126,22 +126,20 @@ const deleteAction = async ( outputDir: string, file: string ) => {
     log( e )
     log(''
       + `Error unlinking file ${file}, are you sure the \n`
-      + `path ${outputDir} exists and has the correct \n`
-      + `permissions set?`
+      + `permissions set correctly?`
     )
   }
 }
 
-export const outputDtsFiles = ( { outputDir: output = '@types', watchPattern = '*.module.scss'} ) => {
-  log({output,watchPattern})
+export const outputDtsFiles = ( { watchPattern = '*.module.scss', sassInclude = [ 'src/' ] } ) => {
+  // log({watchPattern})
 
-  const watcher = chokidar.watch(watchPattern,{depth: 10})
-  const _addOrUpdateAction = bind( addOrUpdateAction, output )
+  const watcher = chokidar.watch( watchPattern, { depth: 10 } )
 
   watcher
-    .on('add', _addOrUpdateAction)
-    .on('change', _addOrUpdateAction)
-    .on('unlink', bind( deleteAction, output ) )
+    .on('add', bind( addOrUpdateAction, sassInclude ) )
+    .on('change', bind( addOrUpdateAction, sassInclude ) )
+    .on('unlink', deleteAction )
 }
 
 export default outputDtsFiles

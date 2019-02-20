@@ -1,5 +1,5 @@
-export declare const outputDtsFiles: ({ outputDir: output, watchPattern }: {
-    outputDir?: string | undefined;
+export declare const outputDtsFiles: ({ watchPattern, sassInclude }: {
     watchPattern?: string | undefined;
+    sassInclude?: string[] | undefined;
 }) => void;
 export default outputDtsFiles;

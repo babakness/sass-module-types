@@ -1,0 +1,8 @@
+{ watchPattern: './src/**/*.module.scss',
+  sassInclude: [ 'src/' ] }
+{ watchPattern: './src/**/*.module.scss' }
+gang { file: 'src/foo.module.scss' }
+wrote src/foo.module.scss
+gang { file: 'src/foo/foo.module.scss' }
+undefined
+wrote src/foo/foo.module.scss
