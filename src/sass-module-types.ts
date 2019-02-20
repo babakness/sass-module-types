@@ -18,6 +18,7 @@ program
   .option('-b, --base <path>', `default base is ${ defaults.base }`)
   .option('-i, --sass-include <paths>', `list of paths to includedefault is ${ defaults.sassInclude }`)
   .option('-p, --pattern <pattern>', `default pattern is ${ defaults.pattern  }`)
+  .option('-k, --includeIndexKeys', 'enable index look ups on default export (disabled by default)')
   .parse(process.argv)
 
 
@@ -48,9 +49,8 @@ const sassInclude = (
     ?  sassIncludeArray 
     : [ defaults.sassInclude ] 
 )
-const base = ( program.base || defaults.base ).trim()
-const pattern = ( program.pattern || defaults.pattern ).trim()
-
-const watchPattern = `${base}/${pattern}`.replace( /\/+/, '/' )
-// console.log({watchPattern, sassInclude})
-processDts({watchPattern, sassInclude})
+const base = ( program.base || defaults.base ).trim() as string
+const pattern = ( program.pattern || defaults.pattern ).trim() as string
+const objectIndex = ( program.includeIndexKeys || false ) as boolean
+const watchPattern = `${base}/${pattern}`.replace( /\/+/, '/' ) as string
+processDts({watchPattern, objectIndex, sassInclude})

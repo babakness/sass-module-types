@@ -1,8 +1,8 @@
 Arguments: 
-  /Users/babak/.nvm/versions/node/v10.15.0/bin/node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js pub
+  /Users/babak/.nvm/versions/node/v10.15.0/bin/node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js publish --access=public
 
 PATH: 
-  /Users/babak/.nvm/versions/node/v10.15.0/bin:/Users/babak/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/babak/bin
+  /var/folders/8h/8g_dtm5510g6ykrddxlsdky80000gr/T/yarn--1550636651320-0.9545433388950846:/Users/babak/work/2019/feb/compile-sass-modules/node_modules/.bin:/Users/babak/.config/yarn/link/node_modules/.bin:/Users/babak/work/2019/feb/compile-sass-modules/node_modules/.bin:/Users/babak/.config/yarn/link/node_modules/.bin:/Users/babak/.nvm/versions/node/v10.15.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/Users/babak/.nvm/versions/node/v10.15.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/babak/.nvm/versions/node/v10.15.0/bin/node_modules/npm/bin/node-gyp-bin:/Users/babak/.nvm/versions/node/v10.15.0/bin:/Users/babak/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/babak/bin
 
 Yarn version: 
   1.13.0
@@ -14,17 +14,22 @@ Platform:
   darwin x64
 
 Trace: 
-  SyntaxError: /Users/babak/work/2019/feb/compile-sass-modules/package.json: Unexpected token } in JSON at position 706
-      at JSON.parse (<anonymous>)
-      at /usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:304:30)
-      at /usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:315:13
+  Error: canceled
+      at Interface.<anonymous> (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:125657:13)
+      at Interface.emit (events.js:182:13)
+      at Interface._ttyWrite (readline.js:783:16)
+      at ReadStream.onkeypress (readline.js:168:10)
+      at ReadStream.emit (events.js:182:13)
+      at emitKeys (internal/readline.js:424:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1022:36)
+      at ReadStream.emit (events.js:182:13)
+      at addChunk (_stream_readable.js:283:12)
 
 npm manifest: 
   {
-    "name": "@babakness/sass-module-typescipt-types",
-    "version": "0.0.2",
+    "name": "@babakness/sass-module-types",
+    "version": "0.0.20",
     "description": "Create TS definition files from sass modules",
     "main": "lib/index.js",
     "license": "MIT",
@@ -38,7 +43,7 @@ npm manifest:
       "postcss-icss-selectors": "^2.0.3",
       "postcss-nested": "^4.1.1",
       "sass": "^1.17.0",
-      "soultrain": "^0.0.41",
+      "soultrain": "^0.0.43",
       "strip-css-singleline-comments": "^1.1.0",
       "tsc": "^1.20150623.0",
       "typescript": "^3.3.3"
@@ -46,7 +51,7 @@ npm manifest:
     "scripts": {
       "start": "tsc -w",
       "test": "jest",
-      "pub": "yarn publish --access=public",
+      "pub": "yarn publish --access=public"
     },
     "jest": {
       "rootDir": "test"
@@ -3443,10 +3448,10 @@ Lockfile:
       source-map-resolve "^0.5.0"
       use "^3.1.0"
   
-  soultrain@^0.0.41:
-    version "0.0.41"
-    resolved "https://registry.yarnpkg.com/soultrain/-/soultrain-0.0.41.tgz#586fd020dcbffa1c1b55e95879a58593e8622183"
-    integrity sha512-DMsSodocetVH2kgVj6WnHaOew50xsOh7EUwCzXMBkoy/jOxgdNXNMbq9N4yqErbuLziD+XoQ41Kaj0j9Q2XSiQ==
+  soultrain@^0.0.43:
+    version "0.0.43"
+    resolved "https://registry.yarnpkg.com/soultrain/-/soultrain-0.0.43.tgz#5a58e512a9c78e724902fa09267e68a66a259b07"
+    integrity sha512-xSwTon8mdaL+ab6rt73oMHaR8NsMaGqJ3Q8xnazwkGRWh2mVgAc0heSlKOP79E2zPf/9DY5Wk9y4X6CbBIswhQ==
     dependencies:
       fp-ts "^1.7.0"
       typescript "^3.1.1"

@@ -26,10 +26,10 @@ const processor = postcss(
 )
 
 
-const toCamelCase = ( str: string ) => str.replace(/-+(\w)/, ( _match, firstLetter: string ) => firstLetter.toUpperCase() )
+const toCamelCase = ( str: string ) => str.replace(/-+(\w)/g, ( _match, firstLetter: string ) => firstLetter.toUpperCase() )
 // const getPath = ( outputDir: string, file: string ) => `${outputDir}/${file}.d.ts`
 
-const getDtsContent = async ( sassInclude: string[], path: string ) => {
+const getDtsContent = async ( sassInclude: string[], includeIndexKey: boolean, path: string ) => {
   try {
     const result = await renderPromise({
       file: path,
@@ -53,7 +53,7 @@ const getDtsContent = async ( sassInclude: string[], path: string ) => {
 
     const defaultExport = 'export default {} as {\n'
       + classes.map( cssClass => `  ${cssClass}: string,`).join('\n')
-      + '  [ key: string ]: string'
+      + ( includeIndexKey ? '\n  [ key: string ]: string' : '' )
       + '\n}'
     
     return `${namedExports}\n${defaultExport}`
@@ -110,8 +110,8 @@ const writeDtsContent = async (file: string, content: string) => {
   }
 }
 
-const addOrUpdateAction = async ( sassInclude: string[], file: string ) => pipeline(
-  await getDtsContent( sassInclude, file ),
+const addOrUpdateAction = async ( sassInclude: string[], objectIndex: boolean, file: string ) => pipeline(
+  await getDtsContent( sassInclude, objectIndex, file ),
   await bind(writeDtsContent, file),
 )
 
@@ -131,14 +131,14 @@ const deleteAction = async ( file: string ) => {
   }
 }
 
-export const outputDtsFiles = ( { watchPattern = '*.module.scss', sassInclude = [ 'src/' ] } ) => {
+export const outputDtsFiles = ( { watchPattern = '*.module.scss', objectIndex = false, sassInclude = [ 'src/' ] } ) => {
   // log({watchPattern})
 
   const watcher = chokidar.watch( watchPattern, { depth: 10 } )
 
   watcher
-    .on('add', bind( addOrUpdateAction, sassInclude ) )
-    .on('change', bind( addOrUpdateAction, sassInclude ) )
+    .on('add', bind( addOrUpdateAction, sassInclude, objectIndex ) )
+    .on('change', bind( addOrUpdateAction, sassInclude, objectIndex ) )
     .on('unlink', deleteAction )
 }
 

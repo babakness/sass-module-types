@@ -1,5 +1,5 @@
 # SASS MODULE TYPES
-## A package for extract TypeScript Definition files from Sass files
+## A package for generating TypeScript Definition files from Sass CSS Module files
 
 This package was developed out of a need to extract classes from 
 Sass `CSS Module` files. Specifically, to actually parse SASS code
@@ -16,6 +16,9 @@ $sections: 10;
 ```
 
 yields 10 different classes. All these classes should be extracted.
+
+
+<img src="https://raw.githubusercontent.com/babakness/sass-module-types/master/.github/images/example.gif" alt="sass-module-types animation" />
 
 The benefit of this is that you get IntelliSense code-completion
 when you import a SCSS file.
@@ -105,3 +108,11 @@ to the `files.exclude` section:
   "src/**/*.module.scss.d.ts": true,
 },
 ```
+
+# License
+
+This software is made available under the MIT license.
+
+https://opensource.org/licenses/MIT
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
