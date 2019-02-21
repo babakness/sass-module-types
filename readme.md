@@ -7,10 +7,12 @@ and make available the classes that might be interpolated or
 partials included. For example:
 
 ```scss
-$sections: 10;
-@for $i from 1 to $sections {
-  .section-#{$i} {
-    transform: rotate(#{$i * 360 / $sections});
+$totalGraySteps: 9;
+
+@for $step from 1 to $totalGraySteps + 1 {
+  $grayLevel: $step * ( 255/$totalGraySteps );
+  .gray-#{$step} {
+    background-color: rgb($grayLevel,$grayLevel,$grayLevel);
   }
 }
 ```
