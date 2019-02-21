@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-git add package.json; git commit -m 'bump'; git push; git push origin --tags;
