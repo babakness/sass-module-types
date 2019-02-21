@@ -86,7 +86,7 @@ with the following on Linux, Unix, and MacOS platforms
 
 ```json
 "scripts": {
-  "start": "(sass-module-types & react-scripts)"
+  "start": "(sass-module-types & react-scripts start)"
 }
 ```
 
