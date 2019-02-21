@@ -2,7 +2,7 @@ Arguments:
   /Users/babak/.nvm/versions/node/v10.15.0/bin/node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js publish --access=public
 
 PATH: 
-  /var/folders/8h/8g_dtm5510g6ykrddxlsdky80000gr/T/yarn--1550636651320-0.9545433388950846:/Users/babak/work/2019/feb/compile-sass-modules/node_modules/.bin:/Users/babak/.config/yarn/link/node_modules/.bin:/Users/babak/work/2019/feb/compile-sass-modules/node_modules/.bin:/Users/babak/.config/yarn/link/node_modules/.bin:/Users/babak/.nvm/versions/node/v10.15.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/Users/babak/.nvm/versions/node/v10.15.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/babak/.nvm/versions/node/v10.15.0/bin/node_modules/npm/bin/node-gyp-bin:/Users/babak/.nvm/versions/node/v10.15.0/bin:/Users/babak/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/babak/bin
+  /var/folders/8h/8g_dtm5510g6ykrddxlsdky80000gr/T/yarn--1550780599402-0.9817945415070186:/Users/babak/work/2019/feb/compile-sass-modules/node_modules/.bin:/Users/babak/.config/yarn/link/node_modules/.bin:/Users/babak/work/2019/feb/compile-sass-modules/node_modules/.bin:/Users/babak/.config/yarn/link/node_modules/.bin:/Users/babak/.nvm/versions/node/v10.15.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/Users/babak/.nvm/versions/node/v10.15.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/babak/.nvm/versions/node/v10.15.0/bin/node_modules/npm/bin/node-gyp-bin:/Users/babak/.nvm/versions/node/v10.15.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/babak/bin
 
 Yarn version: 
   1.13.0
@@ -29,7 +29,7 @@ Trace:
 npm manifest: 
   {
     "name": "@babakness/sass-module-types",
-    "version": "0.0.20",
+    "version": "0.0.23",
     "description": "Create TS definition files from sass modules",
     "main": "lib/index.js",
     "license": "MIT",
