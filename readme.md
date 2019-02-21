@@ -42,6 +42,7 @@ Options:
   -b, --base <path>           default base is ./src/**
   -i, --sass-include <paths>  list of paths to includedefault is src/
   -p, --pattern <pattern>     default pattern is *.module.scss
+  -k, --includeIndexKeys      enable index look ups on default export (disabled by default)
   -h, --help                  output usage information
 ```
 
