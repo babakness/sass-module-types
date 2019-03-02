@@ -31,7 +31,7 @@ Create React App supports this from version 2 onward.
 ## How it works
 
 By default this package exposes a cli watcher that will compile
-SASS files with the pattern `*.module.sass` anywhere in the `src`
+SASS files with the pattern `*.module.scss` anywhere in the `src`
 directory. You can change this behavior using the cli options.
 
 Here is the help menu
