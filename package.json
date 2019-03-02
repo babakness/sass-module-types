@@ -1,15 +1,17 @@
 {
   "name": "@babakness/sass-module-types",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "description": "Create TS definition files from sass modules",
   "main": "lib/index.js",
   "license": "MIT",
   "dependencies": {
     "@types/chokidar": "^1.7.5",
+    "@types/node-sass": "^4.11.0",
     "@types/sass": "^1.16.0",
     "chokidar": "^2.1.1",
     "commander": "^2.19.0",
     "jest": "^24.1.0",
+    "node-sass": "^4.11.0",
     "postcss": "^7.0.14",
     "postcss-icss-selectors": "^2.0.3",
     "postcss-nested": "^4.1.1",
