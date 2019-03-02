@@ -1,6 +1,6 @@
 import { extractICSS } from 'icss-utils';
 import * as chokidar from 'chokidar'
-import * as sass from 'sass'
+import * as sass from 'node-sass'
 import { promisify } from 'util'
 import postcss from 'postcss'
 import * as fs from 'fs'
