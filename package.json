@@ -7,7 +7,6 @@
   "dependencies": {
     "@types/chokidar": "^1.7.5",
     "@types/node-sass": "^4.11.0",
-    "@types/sass": "^1.16.0",
     "chokidar": "^2.1.1",
     "commander": "^2.19.0",
     "jest": "^24.1.0",
@@ -15,7 +14,6 @@
     "postcss": "^7.0.14",
     "postcss-icss-selectors": "^2.0.3",
     "postcss-nested": "^4.1.1",
-    "sass": "^1.17.0",
     "soultrain": "^0.0.43",
     "strip-css-singleline-comments": "^1.1.0",
     "tsc": "^1.20150623.0",
