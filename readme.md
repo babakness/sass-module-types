@@ -53,13 +53,13 @@ Options:
 First add this package using npm
 
 ```bash
-npm install @babakness/sass-modules-types --save-dev 
+npm install @babakness/sass-module-types --save-dev 
 ```
 
 or yarn
 
 ```bash
-yarn add  @babakness/sass-modules-types --dev
+yarn add  @babakness/sass-module-types --dev
 ```
 
 You can run the watcher from the commandline as follows
