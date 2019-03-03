@@ -95,7 +95,7 @@ which offer better platform support.
 
 ```json
 "scripts": {
-  "start": "npm-run-all sass-module-types react-scripts"
+  "start": "concurrently sass-module-types \"react-scripts start\""
 }
 ```
 
