@@ -17,7 +17,7 @@ $totalGraySteps: 9;
 }
 ```
 
-yields 10 different classes. All these classes should be extracted.
+yields 9 different classes. All these classes should be extracted.
 
 
 <img src="https://raw.githubusercontent.com/babakness/sass-module-types/master/.github/images/animation.gif" alt="sass-module-types animation" />
