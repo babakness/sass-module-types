@@ -101,7 +101,7 @@ which offer better platform support.
 
 ## Hiding .scss.d.ts files in VS Code
 
-You can hide the litter of TypeScript Definition Files on
+You can hide the litter of TypeScript Definition Files in
 `VS Code` by adding the following to the `settings.json`
 file located under the `.vscode` and adding the following
 to the `files.exclude` section:
