@@ -29,7 +29,7 @@
     "rootDir": "test"
   },
   "bin": {
-    "sass-module-types": "./bin/sass-module-types"
+    "sass-module-types": "./lib/sass-module-types"
   },
   "devDependencies": {
     "typed-css-modules": "^0.3.7"
