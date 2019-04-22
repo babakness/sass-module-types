@@ -17,7 +17,7 @@ $totalGraySteps: 9;
 }
 ```
 
-yields 10 different classes. All these classes should be extracted.
+yields 9 different classes. All these classes should be extracted.
 
 
 <img src="https://raw.githubusercontent.com/babakness/sass-module-types/master/.github/images/animation.gif" alt="sass-module-types animation" />
@@ -101,7 +101,7 @@ which offer better platform support.
 
 ## Hiding .scss.d.ts files in VS Code
 
-You can hide the litter of TypeScript Definition Files on
+You can hide the litter of TypeScript Definition Files in
 `VS Code` by adding the following to the `settings.json`
 file located under the `.vscode` and adding the following
 to the `files.exclude` section:
