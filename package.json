@@ -12,7 +12,7 @@
     "postcss-icss-selectors": "^2.0.3",
     "postcss-nested": "^4.1.1",
     "soultrain": "^0.0.43",
-    "strip-css-singleline-comments": "^1.1.0",
+    "strip-css-singleline-comments": "^1.1.0"
   },
   "scripts": {
     "start": "tsc -w",
