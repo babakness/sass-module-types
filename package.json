@@ -11,7 +11,7 @@
     "postcss": "^7.0.14",
     "postcss-icss-selectors": "^2.0.3",
     "postcss-nested": "^4.1.1",
-    "soultrain": "^0.0.43",
+    "soultrain": "^0.0.46",
     "strip-css-singleline-comments": "^1.1.0"
   },
   "scripts": {
