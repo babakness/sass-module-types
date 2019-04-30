@@ -1,6 +1,6 @@
 {
   "name": "@babakness/sass-module-types",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "description": "Create TS definition files from sass modules",
   "main": "lib/index.js",
   "license": "MIT",
