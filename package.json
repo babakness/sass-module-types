@@ -5,19 +5,14 @@
   "main": "lib/index.js",
   "license": "MIT",
   "dependencies": {
-    "@types/chokidar": "^1.7.5",
-    "@types/node-sass": "^4.11.0",
     "chokidar": "^2.1.1",
     "commander": "^2.19.0",
-    "jest": "^24.1.0",
     "node-sass": "^4.11.0",
     "postcss": "^7.0.14",
     "postcss-icss-selectors": "^2.0.3",
     "postcss-nested": "^4.1.1",
     "soultrain": "^0.0.43",
-    "strip-css-singleline-comments": "^1.1.0",
-    "tsc": "^1.20150623.0",
-    "typescript": "^3.3.3"
+    "strip-css-singleline-comments": "^1.1.0"
   },
   "scripts": {
     "start": "tsc -w",
@@ -32,6 +27,10 @@
     "sass-module-types": "./lib/sass-module-types.js"
   },
   "devDependencies": {
-    "typed-css-modules": "^0.3.7"
+    "@types/chokidar": "^1.7.5",
+    "@types/node-sass": "^4.11.0",
+    "jest": "^24.1.0",
+    "typed-css-modules": "^0.3.7",
+    "typescript": "^3.3.3"
   }
 }
